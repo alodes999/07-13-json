@@ -5,7 +5,7 @@ class Resource
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
   
-  attr_reader :id, 
+  attr_reader :id
   attr_accessor :link, :assignments_id
   
   def initialize (args)
