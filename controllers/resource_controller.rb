@@ -7,6 +7,13 @@ get "resource/add" do
   erb :"resource/add"
 end
 
+get "/resource_add_to_database" do
+  add_hash = {"link" => params["resource"]["link"], "assignments_id" => params["resource"]["assignments_id"]}
+  
+  Resource.add(add_hash)
+  erb :"success/success"  
+end
+
 get "resource/edit" do
   erb :"resource/edit"
 end

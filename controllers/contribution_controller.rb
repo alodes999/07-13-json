@@ -8,6 +8,13 @@ get "contribution/add" do
   erb :"contribution/add"
 end
 
+get "" do
+  add_hash = {"assignments_id" => params["contribution"]["assignments_id"], "classmates_id" => params["contribution"]["classmates_id"]}
+  
+  Contribution.add(add_hash)
+  erb :"success/success"  
+end
+
 get "contribution/edit" do
   erb :"contribution/edit"
 end
