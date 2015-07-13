@@ -1,0 +1,20 @@
+<h1>Add Resource</h1>
+
+  <p>Please fill out the form to add a resource</p>
+<!--This form allows for input for a new resource link. This link
+   could be an article or video based on the assignment_id input in the 2nd form field
+  It returns the new resource name, called "resource[link]", and the assignment to link to, called
+  resource[assignments_id]. Sends a call to the "/resource_add_to_database" receiver -->
+  <form action="/resource_add_to_database">
+    <input type="text" placeholder="Link to Resource(url)" name="resource[link]">
+    <input type="number" placeholder="Assigment to Link to" name="resource[assignments_id]">
+    
+    <button type="submit">Add Resource</button>
+  </form>
+  
+  <ul>
+    <% @assignment_list.each do |assign| %>
+      <li><%= assign.id %> - <%= assign.description %></li>
+  </ul>
+
+<p><a href="/home">Go to home page</a></p>

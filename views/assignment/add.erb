@@ -1,0 +1,14 @@
+<h1>Add Assignment</h1>
+
+  <p>Please fill out the form to add a assignment</p>
+<!--This form allows for input for a new assignment link. This link
+   could be an article or video based on the assignment_id input in the 2nd form field
+  It returns the new assignment name, called "assignment[link]", and the assignment to link to, called
+  assignment[assignments_id]. Sends a call to the "/assignment_add_to_database" receiver -->
+  <form action="/assignment_add_to_database">
+    <input type="text" placeholder="Description" name="assignment[description]">
+    <input type="text" placeholder="Link to Github(url)" name="assignment[github]">
+    
+    <button type="submit">Add Assignment</button>
+  </form>
+<p><a href="/home">Go to home page</a></p>

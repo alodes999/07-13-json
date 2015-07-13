@@ -1,0 +1,12 @@
+<h1>Add Contribution</h1>
+
+  <p>Please fill out the form to add a contribution</p>
+<!--This form allows for input for a new contribution.  This is our bridge table, and therefore
+  accepts ids of our assignment and classmates that contributed to the assignment.  There may not be a contribution entry for each assignment, but an assignment could have multiple classmates contributing to it.  Sends a call to the "/contribution_add_to_database" receiver -->
+  <form action="/contribution_add_to_database">
+    <input type="number" placeholder="Assignment ID" name="contribution[assignments_id]">
+    <input type="number" placeholder="Classmate ID" name="contribution[classmates_id]">
+    
+    <button type="submit">Add Contribution</button>
+  </form>
+<p><a href="/home">Go to home page</a></p>

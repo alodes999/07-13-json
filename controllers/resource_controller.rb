@@ -3,6 +3,7 @@ get "resource/view" do
 end
 
 get "resource/add" do
+  @assignment_list = Assignment.all
   erb :"resource/add"
 end
 
