@@ -9,9 +9,9 @@ class Assignment
   attr_accessor :description, :github
   
   def initialize (args)
-    @id = args[id]
-    @description = args[description]
-    @github = args[github]
+    @id = args["id"]
+    @description = args["description"]
+    @github = args["github"]
   end
   
 end

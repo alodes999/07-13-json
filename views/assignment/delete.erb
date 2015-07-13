@@ -1,0 +1,17 @@
+<h1>Delete Assignment</h1>
+
+<p>Please pick an assignment to delete</p>
+<!--This form lists each assignment currently in the database, and allows selection of one to delete.
+  It returns the id of the selected assignment, named "assignment[delete_id]". 
+  Sends a call to the "/assignment_delete_from_database" receiver -->
+<form action="/assignment_delete_from_database">
+  <select name="assignment[delete_id]">
+    <% @assignment.each do |assignment| %>
+      <option value="<%= assignment.id %>"><%= assignment.description %></option>
+    <% end %>
+  </select>
+  
+  <button type="input">I'm sure, delete assignment</button>
+</form>
+
+<p><a href="/home">Go to home page</a></p>

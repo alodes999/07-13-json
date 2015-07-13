@@ -9,8 +9,8 @@ class Classmate
   attr_accessor :name
   
   def initialize (args)
-    @id = args[id]
-    @name = args[name]
+    @id = args["id"]
+    @name = args["name"]
   end
   
 end

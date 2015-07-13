@@ -17,6 +17,16 @@ get "/assignment/edit" do
   erb :"assignment/edit"
 end
 
+get "" do
+  
+end
+
 get "/assignment/delete" do
   erb :"assignment/delete"
+end
+
+get "/assignment_delete_from_database" do
+  Assignment.delete(params["assignment"]["delete_id"])
+  
+  erb :"success/success"
 end

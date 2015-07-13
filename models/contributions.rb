@@ -8,8 +8,8 @@ class Contribution
   attr_reader :classmates_id, :assignments_id
   
   def initialize (args)
-    @classmates_id = args[classmates_id]
-    @assignments_id = args[assignments_id]
+    @classmates_id = args["classmates_id"]
+    @assignments_id = args["assignments_id"]
   end
   
   

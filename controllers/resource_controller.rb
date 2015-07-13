@@ -4,6 +4,7 @@ end
 
 get "/resource/add" do
   @assignment_list = Assignment.all
+  binding.pry
   erb :"resource/add"
 end
 
