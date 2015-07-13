@@ -1,4 +1,7 @@
 get "/contribution/view" do
+  @contrib = Contribution.all  
+  @assignment_list = Assignment.all
+  @classmate_list = Classmate.all
   erb :"contribution/view"
 end
 

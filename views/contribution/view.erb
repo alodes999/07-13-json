@@ -1,0 +1,22 @@
+<h1>Contributions List</h1>
+
+<ul>
+  <% @contrib.each do |contrib| %>
+    <li><%= "#{contrib.classmates_id} - #{contrib.assignments_id}" %></li>
+  <% end %>
+</ul>
+
+
+<ul>
+  <% @assignment_list.each do |assign| %>
+    <li><%= "#{assign.id} - #{assign.description}" %></li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @classmate_list.each do |cm| %>
+    <li><%= "#{cm.id} - #{cm.name}" %></li>
+  <% end %>
+</ul>
+
+<p><a href="/home">Go to home page</a></p>
