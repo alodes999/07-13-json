@@ -2,11 +2,13 @@ class Contribution
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
   
-  attr_reader :classmate_id, :assignment_id
+  attr_reader :classmates_id, :assignments_id
   
   def initialize (args)
-    @classmate_id = args[classmate_id]
-    @assignment_id = args[assignment_id]
+    @classmates_id = args[classmates_id]
+    @assignments_id = args[assignments_id]
   end
+  
+  
   
 end
