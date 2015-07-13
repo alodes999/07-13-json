@@ -1,3 +1,6 @@
+require_relative "database_class_methods"
+require_relative "database_instance_methods"
+
 class Classmate
   extend DatabaseClassMethods
   include DatabaseInstanceMethods

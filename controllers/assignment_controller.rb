@@ -1,8 +1,8 @@
-get "assignment/view" do
+get "/assignment/view" do
   erb :"assignment/view"
 end
 
-get "assignment/add" do
+get "/assignment/add" do
   erb :"assignment/add"
 end
 
@@ -13,10 +13,10 @@ get "/assignment_add_to_database" do
   erb :"success/success"
 end
 
-get "assignment/edit" do
+get "/assignment/edit" do
   erb :"assignment/edit"
 end
 
-get "assignment/delete" do
+get "/assignment/delete" do
   erb :"assignment/delete"
 end

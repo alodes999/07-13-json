@@ -1,8 +1,8 @@
-get "classmate/view" do
+get "/classmate/view" do
   erb :"classmate/view"
 end
 
-get "classmate/add" do
+get "/classmate/add" do
   erb :"classmate/add"
 end
 
@@ -11,10 +11,10 @@ get "/classmate_add_to_database" do
   erb :"success/success"   
 end
 
-get "classmate/edit" do
+get "/classmate/edit" do
   erb :"classmate/edit"
 end
 
-get "classmate/delete" do
+get "/classmate/delete" do
   erb :"classmate/delete"
 end

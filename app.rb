@@ -4,7 +4,7 @@ require 'sinatra/reloader'
 require 'sinatra/json'
 
 require 'sqlite3'
-require_relative 'database_setup'
+require_relative 'database_setup.rb'
 
 require_relative 'models/assignments.rb'
 require_relative 'models/contributions.rb'

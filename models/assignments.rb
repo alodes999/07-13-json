@@ -1,3 +1,6 @@
+require_relative "database_class_methods"
+require_relative "database_instance_methods"
+
 class Assignment
   extend DatabaseClassMethods
   include DatabaseInstanceMethods

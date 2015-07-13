@@ -1,24 +1,24 @@
-get "contribution/view" do
+get "/contribution/view" do
   erb :"contribution/view"
 end
 
-get "contribution/add" do
+get "/contribution/add" do
   @assignment_list = Assignment.all
   @classmate_list = Classmate.all
   erb :"contribution/add"
 end
 
-get "" do
+get "/contribution_add_to_database" do
   add_hash = {"assignments_id" => params["contribution"]["assignments_id"], "classmates_id" => params["contribution"]["classmates_id"]}
   
   Contribution.add(add_hash)
   erb :"success/success"  
 end
 
-get "contribution/edit" do
+get "/contribution/edit" do
   erb :"contribution/edit"
 end
 
-get "contribution/delete" do
+get "/contribution/delete" do
   erb :"contribution/delete"
 end
