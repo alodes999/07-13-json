@@ -1,4 +1,5 @@
 get "/classmate/view" do
+  @classmate = Classmate.all
   erb :"classmate/view"
 end
 
@@ -14,6 +15,14 @@ end
 get "/classmate/edit" do
   @classmates = Classmate.all
   erb :"classmate/edit"
+end
+
+get "/classmate_change_in_database" do
+  cm_to_change = Classmate.find(params["classmate"]["change_id"])
+  cm_to_change.name = params["classmate"]["name"]
+  
+  cm_to_change.save
+  erb :"success/success"
 end
 
 get "/classmate/delete" do

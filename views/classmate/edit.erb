@@ -1,0 +1,19 @@
+<h1>Change Classmate</h1>
+
+<form action="/classmate_change_in_database">
+<!--This form lists each classmate currently in the database, as well as allows for input
+  for the new classmate name.  It returns both the id, named "classmate[change_id]", and the new
+  classmate name, called "classmate[name]".  Sends a call to the "/classmate_change_in_database"
+  receiver -->
+  <select name="classmate[change_id]">
+    <% @classmate.each do |classmate| %>
+      <option value="<%= classmate.id %>"><%= classmate.link %></option>
+    <% end %>
+  </select>
+  <input type="text" placeholder="New Classmate Name" name="classmate[name]">
+  
+  <button type="submit">Change this Resource</button>
+  
+</form>
+
+<p><a href="/home">Go to home page</a></p>

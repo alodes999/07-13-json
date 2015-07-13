@@ -1,0 +1,9 @@
+<h1>Classmate List</h1>
+
+<ul>
+  <% @classmate.each do |cm| %>
+    <li><%= "#{cm.id} - #{cm.name}" %></li>
+  <% end %>
+</ul>
+
+<p><a href="/home">Go to home page</a></p>
