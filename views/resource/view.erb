@@ -1,0 +1,9 @@
+<h1>Resource List</h1>
+
+<ul>
+  <% @resource.each do |resource| %>
+    <li><%= "#{resource.id} - #{resource.link} - #{resource.assignments_id}" %></li>
+  <% end %>
+</ul>
+
+<p><a href="/home">Go to home page</a></p>

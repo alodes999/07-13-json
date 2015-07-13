@@ -20,5 +20,10 @@ get "/contribution/edit" do
 end
 
 get "/contribution/delete" do
+  @contribution = Contribution.all
   erb :"contribution/delete"
 end
+
+# get "" do
+#
+# end

@@ -1,0 +1,17 @@
+<h1>Delete Resource</h1>
+
+<p>Please pick an resource to delete</p>
+<!--This form lists each resource currently in the database, and allows selection of one to delete.
+  It returns the id of the selected resource, named "resource[delete_id]". 
+  Sends a call to the "/resource_delete_from_database" receiver -->
+<form action="/resource_delete_from_database">
+  <select name="resource[delete_id]">
+    <% @resource.each do |resource| %>
+      <option value="<%= resource.id %>"><%= resource.link %></option>
+    <% end %>
+  </select>
+  
+  <button type="input">I'm sure, delete resource</button>
+</form>
+
+<p><a href="/home">Go to home page</a></p>

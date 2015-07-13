@@ -22,6 +22,7 @@ get "" do
 end
 
 get "/assignment/delete" do
+  @assignment = Assignment.all
   erb :"assignment/delete"
 end
 

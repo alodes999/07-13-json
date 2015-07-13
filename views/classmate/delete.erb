@@ -1,0 +1,17 @@
+<h1>Delete Classmate</h1>
+
+<p>Please pick an classmate to delete</p>
+<!--This form lists each classmate currently in the database, and allows selection of one to delete.
+  It returns the id of the selected classmate, named "classmate[delete_id]". 
+  Sends a call to the "/classmate_delete_from_database" receiver -->
+<form action="/classmate_delete_from_database">
+  <select name="classmate[delete_id]">
+    <% @classmates.each do |classmate| %>
+      <option value="<%= classmate.id %>"><%= classmate.name %></option>
+    <% end %>
+  </select>
+  
+  <button type="input">I'm sure, delete classmate</button>
+</form>
+
+<p><a href="/home">Go to home page</a></p>

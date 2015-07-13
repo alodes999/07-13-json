@@ -1,0 +1,17 @@
+<h1>Delete Contribution</h1>
+
+<p>Please pick an contribution to delete</p>
+<!--This form lists each contribution currently in the database, and allows selection of one to delete.
+  It returns the id of the selected contribution, named "contribution[delete_id]". 
+  Sends a call to the "/contribution_delete_from_database" receiver -->
+<form action="/contribution_delete_from_database">
+  <select name="contribution[delete_id]">
+    <% @contribution.each do |contribution| %>
+      <option value="<%= contribution.id %>"><%= contribution.link %></option>
+    <% end %>
+  </select>
+  
+  <button type="input">I'm sure, delete contribution</button>
+</form>
+
+<p><a href="/home">Go to home page</a></p>

@@ -1,0 +1,26 @@
+<h1>Change Resource</h1>
+
+<form action="/resource_change_in_database">
+<!--This form lists each resource currently in the database, as well as allows for input
+  for the new resource name.  It returns both the id, named "resource[change_id]", and the new
+  resource name, called "resource[new_name]".  Sends a call to the "/resource_change_in_database"
+  receiver -->
+  <select name="resource[change_id]">
+    <% @resource.each do |resource| %>
+      <option value="<%= resource.id %>"><%= resource.link %></option>
+    <% end %>
+  </select>
+  <input type="text" placeholder="New Resource Link" name="resource[link]">
+  <input type="number" placeholder="New Assignment ID" name="resource[assignments_id]">
+  
+  <button type="submit">Change this Resource</button>
+  
+</form>
+
+<% @assignments.each do |assign| %>
+<ul>
+  <li><%= assign.id %> - <%= assign.description %></li>
+</ul>
+<% end %>
+
+<p><a href="/home">Go to home page</a></p>
