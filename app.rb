@@ -1,0 +1,20 @@
+require 'pry'
+require 'sinatra'
+require 'sinatra/reloader'
+require 'sinatra/json'
+
+require 'sqlite3'
+require_relative 'database_setup'
+
+require_relative 'models/assignments.rb'
+require_relative 'models/contributors.rb'
+require_relative 'models/resources.rb'
+require_relative 'models/users.rb'
+require_relative 'models/database_class_methods.rb'
+require_relative 'models/database_instance_methods.rb'
+
+require_relative 'controllers/home.rb'
+require_relative 'controllers/assignment_control.rb'
+require_relative 'controllers/contributor_control.rb'
+require_relative 'controllers/resource_control.rb'
+require_relative 'controllers/user_control.rb'
