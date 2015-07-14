@@ -53,4 +53,63 @@ get "/api/resources" do
   
   json @resource_array
 end
+    # "/api/assignments/add/RPSv1?github=github.com/alodes999/06-05-rps"
+get "/api/assignments/add/:new" do
+  add_hash = {"description" => params["new"], "github" => params["github"]}
+  
+  new_assign = Assignment.add(add_hash)
+  
+  @assign_as_hash = new_assign.make_hash
+  
+  json @assign_as_hash
+end
 
+get "/api/resources/add/:new" do
+  add_hash = {"assignments_id" => params["new"], "link" => params["link"]}
+  
+  new_resource = Resource.add(add_hash)
+  
+  @rec_as_hash = new_resource.make_hash
+  
+  json @rec_as_hash
+end
+
+get "/api/contributions/add/:assign_id/:classmate_id" do
+  add_hash = {"assignments_id" => params["assign_id"], "classmates_id" => params["classmate_id"]}
+  
+  new_contrib = Contribution.add(add_hash)
+  
+  @contrib_as_hash = new_contrib.make_hash
+  
+  json @contrib_as_hash
+end
+
+get "/api/assignments/delete/:id" do
+  @del_assign = Assignment.find(params["id"])
+  
+  Assignment.delete(params["id"])
+  
+  @del_assign = @del_assign.make_hash
+  
+  json @del_assign
+end
+
+get "/api/resources/delete/:id" do
+  @del_resource = Resource.find(params["id"])
+  
+  Resource.delete(params["id"])
+  
+  @del_resource = @del_resource.make_hash
+  
+  json @del_resource
+end
+
+get "/api/contributions/delete/:id" do
+  @del_contrib = Contribution.find(params["id"])
+  
+  Contribution.delete(params["id"])
+  
+  @del_contrib = @del_contrib.make_hash
+  
+  json @del_contrib
+end
