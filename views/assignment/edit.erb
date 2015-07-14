@@ -1,0 +1,20 @@
+<h1>Change Assignment</h1>
+
+<form action="/assignment_change_in_database">
+<!--This form lists each assignment currently in the database, as well as allows for input
+  for the new assignment name.  It returns both the id, named "assignment[change_id]", and the new
+  assignment name, called "assignment[new_name]".  Sends a call to the "/assignment_change_in_database"
+  receiver -->
+  <select name="assignment[change_id]">
+    <% @assignment.each do |assignment| %>
+      <option value="<%= assignment.id %>"><%= assignment.description %></option>
+    <% end %>
+  </select>
+  <input type="text" placeholder="New Assignment Description" name="assignment[description]">
+  <input type="text" placeholder="New Assignment Github URL" name="assignment[github]">
+  
+  <button type="submit">Change this Assignment</button>
+  
+</form>
+
+<p><a href="/home">Go to home page</a></p>

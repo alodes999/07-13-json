@@ -1,4 +1,5 @@
 get "/assignment/view" do
+  @assignment = Assignment.all
   erb :"assignment/view"
 end
 
@@ -14,11 +15,17 @@ get "/assignment_add_to_database" do
 end
 
 get "/assignment/edit" do
+  @assignment = Assignment.all
   erb :"assignment/edit"
 end
 
-get "" do
+get "/assignment_change_in_database" do
+  ass_to_change = Assignment.find(params["assignment"]["change_id"])
+  ass_to_change.description = params["assignment"]["description"]
+  ass_to_change.github = params["assignment"]["github"]
   
+  ass_to_change.save
+  erb :"success/success"
 end
 
 get "/assignment/delete" do
