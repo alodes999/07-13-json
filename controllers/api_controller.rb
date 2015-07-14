@@ -1,3 +1,6 @@
+# Returns an Array of Hashes of all Assignment rows in the database.
+# Gets an Array of Objects from SQL, and then runs each Object through the each loop and
+# plugs the resulting hash into an array
 get "/api/assignments" do
   assign_list = Assignment.all
   
@@ -9,7 +12,8 @@ get "/api/assignments" do
   
   json @assign_array
 end
-
+# Returns an Array of Hashes corresponding to any table information referenced with the 
+# Assignment ID passed into the route.
 get "/api/assignments/:id" do
   resource = Resource.all_from_assignment(params["id"])
   contrib = Assignment.all_from_contributions(params["id"])
@@ -40,8 +44,9 @@ get "/api/assignments/:id" do
     
   json @data_array
 end
-
-
+# Returns an Array of Hashes of all Resources rows in the database.
+# Gets an Array of Objects from SQL, and then runs each Object through the each loop and
+# plugs the resulting hash into an array
 get "/api/resources" do
   resource_list = Resource.all
   
@@ -53,7 +58,11 @@ get "/api/resources" do
   
   json @resource_array
 end
-    # "/api/assignments/add/RPSv1?github=github.com/alodes999/06-05-rps"
+# Adds a new Assignment row to our assignments table in our database
+# Returns an Object, that we turn back into a Hash to pass to json.
+
+# An example of the address to use this api:
+# "/api/assignments/add/RPSv1?github=github.com/alodes999/06-05-rps"
 get "/api/assignments/add/:new" do
   add_hash = {"description" => params["new"], "github" => params["github"]}
   
@@ -63,7 +72,9 @@ get "/api/assignments/add/:new" do
   
   json @assign_as_hash
 end
-
+# Adds a new Resource row to our resources table in our database
+# Returns an Object, that we turn back into a Hash to pass to json.
+# Follows the same type of entry as the Assignments add above.
 get "/api/resources/add/:new" do
   add_hash = {"assignments_id" => params["new"], "link" => params["link"]}
   
@@ -73,7 +84,8 @@ get "/api/resources/add/:new" do
   
   json @rec_as_hash
 end
-
+# Adds a new Contribution row to our contributions table in our database
+# Returns an Object, that we turn back into a Hash to pass to json.
 get "/api/contributions/add/:assign_id/:classmate_id" do
   add_hash = {"assignments_id" => params["assign_id"], "classmates_id" => params["classmate_id"]}
   
@@ -83,7 +95,10 @@ get "/api/contributions/add/:assign_id/:classmate_id" do
   
   json @contrib_as_hash
 end
-
+# Deletes a row from the Assignment table.
+# First brings an Object back of the row we find in the database, then
+# deletes the row from the table corresponding to that id.  Sends the hash of the deleted
+# row back through json
 get "/api/assignments/delete/:id" do
   @del_assign = Assignment.find(params["id"])
   
@@ -93,7 +108,10 @@ get "/api/assignments/delete/:id" do
   
   json @del_assign
 end
-
+# Deletes a row from the Resources table.
+# First brings an Object back of the row we find in the database, then
+# deletes the row from the table corresponding to that id.  Sends the hash of the deleted
+# row back through json
 get "/api/resources/delete/:id" do
   @del_resource = Resource.find(params["id"])
   
@@ -103,7 +121,10 @@ get "/api/resources/delete/:id" do
   
   json @del_resource
 end
-
+# Deletes a row from the Contributions table.
+# First brings an Object back of the row we find in the database, then
+# deletes the row from the table corresponding to that id.  Sends the hash of the deleted
+# row back through json
 get "/api/contributions/delete/:id" do
   @del_contrib = Contribution.find(params["id"])
   
