@@ -14,4 +14,8 @@ class Resource
     @assignments_id = args["assignments_id"]
   end
   
+  def self.all_from_assignment(id)
+    hash_list = CONNECTION.execute("SELECT * FROM resources WHERE assignments_id = #{id};")
+    return hash_list
+  end
 end

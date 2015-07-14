@@ -14,4 +14,8 @@ class Assignment
     @github = args["github"]
   end
   
+  def self.all_from_contributions(id)
+    hash_list = CONNECTION.execute("SELECT * FROM contributions WHERE assignments_id = #{id};")
+    return hash_list
+  end
 end
