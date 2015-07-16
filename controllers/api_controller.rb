@@ -1,3 +1,6 @@
+get "/api" do
+  erb :"/api/api"
+end
 # Returns an Array of Hashes of all Assignment rows in the database.
 # Gets an Array of Objects from SQL, and then runs each Object through the each loop and
 # plugs the resulting hash into an array
