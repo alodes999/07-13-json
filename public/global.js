@@ -32,35 +32,35 @@ function display_assignments(event) {
 document.getElementById("show_assign").onclick = display_assignments;
 
 
-// function display_resources(event) {
-//   var rec_id_to_use = document.getElementById("all_resource")
-//
-//   event.preventDefault();
-//
-//   req = new XMLHttpRequest();
-//   req.responseType = "json";
-//   req.open("get", "/api/resources")
-//
-//   req.addEventListener("load", function() {
-//     var resource_list = this.response;
-//
-//     for (var x=0; x < resource_list.length; x++) {
-//       var rec_node_to_add = document.createElement("li");
-//       var rec_text_to_add = document.createTextNode(resource_list[x].link);
-//       var rec_new_link = document.createElement("a");
-//       rec_new_link.setAttribute("href", "/api/resources/" + resource_list[x].id)
-//       rec_id_to_use.appendChild(rec_node_to_add).appendChild(rec_new_link).appendChild(rec_text_to_add);
-//     }
-//
-//     var rec_link_to_drop  = document.getElementById("resource_link");
-//     rec_link_to_drop.removeAttribute("href");
-//
-//   })
-//   req.send();
-//
-// }
-//
-// document.getElementById("show_resource").onclick = display_resources;
+function display_resources(event) {
+  var rec_id_to_use = document.getElementById("all_resource")
+
+  event.preventDefault();
+
+  req = new XMLHttpRequest();
+  req.responseType = "json";
+  req.open("get", "/api/resources")
+
+  req.addEventListener("load", function() {
+    var resource_list = this.response;
+
+    for (var x=0; x < resource_list.length; x++) {
+      var rec_node_to_add = document.createElement("li");
+      var rec_text_to_add = document.createTextNode(resource_list[x].link);
+      var rec_new_link = document.createElement("a");
+      rec_new_link.setAttribute("href", "/api/resources/" + resource_list[x].id)
+      rec_id_to_use.appendChild(rec_node_to_add).appendChild(rec_new_link).appendChild(rec_text_to_add);
+    }
+
+    var rec_link_to_drop  = document.getElementById("resource_link");
+    rec_link_to_drop.removeAttribute("href");
+
+  })
+  req.send();
+
+}
+
+ document.getElementById("show_resource").onclick = display_resources;
 //
 // function display_all_for_assignment(event) {
 //   var assign_id_to_use = this
